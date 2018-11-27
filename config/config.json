@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "sharepoint-candidates-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/sharepointCandidates/SharepointCandidatesWebPart.js",
+          "manifest": "./src/webparts/sharepointCandidates/SharepointCandidatesWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SharepointCandidatesWebPartStrings": "lib/webparts/sharepointCandidates/loc/{locale}.js"
+  }
+}
