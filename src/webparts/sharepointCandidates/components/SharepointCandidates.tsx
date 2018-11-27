@@ -8,7 +8,6 @@ import { Fabric, PrimaryButton } from 'office-ui-fabric-react';
 import { ISharepointCandidatesProps } from './ISharepointCandidatesProps';
 import { ISharepointCandidatesState } from './ISharepointCandidatesState';
 import { escape } from '@microsoft/sp-lodash-subset';
-import { ISharePointList } from '../models/ISharePointList';
 import { ICompanyItem } from '../models/ICompanyItem';
 import { IRobertKuzmaItem } from '../models/IRobertKuzmaItem';
 import { Pie } from 'react-chartjs-2';
