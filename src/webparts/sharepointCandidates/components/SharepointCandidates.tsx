@@ -11,7 +11,14 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import { ICompanyItem } from '../models/ICompanyItem';
 import { IRobertKuzmaItem } from '../models/IRobertKuzmaItem';
 import { Pie } from 'react-chartjs-2';
+import { Formik, Field, Form, FormikActions } from 'formik';
 
+
+interface Values {
+  firstName: string;
+  lastName: string;
+  email: string;
+}
 
 export default class SharepointCandidates extends React.Component<ISharepointCandidatesProps, ISharepointCandidatesState> {
 
@@ -310,6 +317,36 @@ export default class SharepointCandidates extends React.Component<ISharepointCan
             <div className={ styles.column }>
               <span className={ styles.title }>{escape(this.props.description)} Form Validation</span>
               <p className={ styles.subTitle }>Customize SharePoint experiences using Web Parts.</p>
+
+              <Formik
+      initialValues={{
+        firstName: '',
+        lastName: '',
+        email: '',
+      }}
+      onSubmit={(values: Values, { setSubmitting }: FormikActions<Values>) => {
+        setTimeout(() => {
+          alert(JSON.stringify(values, null, 2));
+          setSubmitting(false);
+        }, 500);
+      }}
+      render={() => (
+        <Form>
+          <label htmlFor="firstName">First Name</label>
+          <Field id="firstName" name="firstName" placeholder="John" type="text" />
+
+          <label htmlFor="lastName">Last Name</label>
+          <Field id="lastName" name="lastName" placeholder="Doe" type="text" />
+
+          <label htmlFor="email">Email</label>
+          <Field id="email" name="email" placeholder="john@acme.com" type="email" />
+
+          <button type="submit" style={{ display: 'block' }}>
+            Submit
+          </button>
+        </Form>
+      )}
+    />
 
               <form onSubmit={this.handleSubmit}>
                 <label className={ styles.label }>
